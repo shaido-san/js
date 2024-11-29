@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.alert('Hello World');
+    </script>
+    
+    <button onclick="window.alert('Hello World')">ボタンを押すとハローワールド</button>
+    <script>
+        function janken(){
+            let myHand = Number(prompt('じゃんけんしようぜー。グーなら０、チョキなら１、パーなら３を入力してね'));
+            comHand = Math.floor(Math.random() * 3);
+    
+            if (myHand==0 && comHand==0) {
+                window.alert("あいこです");
+            } else if (myHand==0 && comHand==1){
+                window.alert('あなたの勝ちです');
+            } else if (myHand==0 && comHand==3){
+                window.alert('あなたの負けです');
+            } else if (myHand==1 && comHand==0){
+                window.alert('あなたの負けです');
+            } else if (myHand==1 && comHand==1){
+                window.alert('あいこです');
+            } else if (myHand==1 && comHand==3){
+                window.alert('あなたの勝ちです');
+            } else if (myHand==3 && comHand==0){
+                window.alert('あなたの勝ちです');
+            } else if (myHand==3 && comHand==1){
+                window.alert('あなたの負けです');
+            } else if (myHand==3 && comHand==3){
+                window.alert('あいこです');
+            }else{
+                window.alert('無効です');
+            }
+        }
+    
+     </script>
+
+     <button type="button" onclick="janken()">
+        じゃんけん
+     </button>
+    
+</body>
+</html>
