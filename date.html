@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現在の日時</title>
+</head>
+<body>
+<script>
+    let today = new Date();
+    
+    let week = new Array('日','月','火','水','木','金','土',);
+    alert(today.getFullYear() + "年" + today.getMonth()+"月" + today.getDay() + "日" + week[today.getDate()] + "曜日" + today.getHours() + '時' + today.getMinutes() + '分' + today.getSeconds() + '秒')
+</script>
+    
+</body>
+</html>

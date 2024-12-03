@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form1</title>
+</head>
+<body>
+
+<script>
+    // 氏名：カラじゃないかどうか
+    function blurName(){
+        let str = document.post.myName.value;
+        // 思い通りの値が取得できているかalertで確認したりするのもよい
+        // alert(str);
+        // 文字列取得の処理
+        let n = str.length;
+        // alert(n);
+        if(n == 0){
+            alert('未入力です');
+        }
+    }
+
+    // 住所：都道府県が入っているか否か
+    function blurAddress(){
+        let str = document.post.myAddress.value;
+        // 都の文字が見つからない
+        if(str.index0f('都') == -1 && ){
+            alert('文字が足りません');
+        }
+        else if(str.index0f('道') == -1){
+            alert('文字が足りません');
+        }
+        else if(str.index0f('府') == -1){
+            alert('文字が足りません');
+        }
+        else if(str.index0f('県') == -1){
+            alert('文字が足りません');
+        }
+
+    }
+
+    // 年齢：数値かどうか
+    function blurAge(){
+        let str = document.post.myAge.value
+        if (isFinite(str)=False){
+            aleart('数値を入れてください。')
+        }
+        
+    }
+</script>
+    
+<form action="#" name="post">
+    <table>
+        <tr>
+            <td>名前</td>
+            <td><input type="text" name="myName" onblur="blurName()"></td>
+        </tr>
+        <tr>
+            <td>住所</td>
+            <td><input type="text" name="myAddress" onblur="blurAddress()"></td>
+        </tr>
+        <tr>
+            <td>年齢</td>
+            <td><input type="text" name="myAge" onblur="blurAge()"></td>
+        </tr>
+    </table>
+</form>
+
+
+
+</body>
+</html>
