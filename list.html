@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li title="list1です">リスト1</li>
+        <li title="list2です">リスト2</li>
+        <li title="list3です">リスト3</li>
+
+    <!-- 属性値の書き換えテスト -->
+    <a href="https://www.google.co.jp/" id="engine99">Google検索</a>
+
+    <script>
+        let ul = document.getElementById('list');
+        let elm = ul.getElementsByTagName('li').item(2);
+        alert(elm.title);
+
+        let li = document.getElementsByTagName('li').item(0);
+        alert(li.nodeName);
+
+        let li2 = document.getElementsByTagName('li').item(0);
+        let text = li2.firstChild.nodeValue;
+        alert(text);
+
+        let engine = document.getElementById('engine99');
+        engine.href = "https://www.bing.co.jp/";
+     </script>  
+    </ul>
+</body>
+</html>

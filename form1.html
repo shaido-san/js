@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="call()">
+    
+    <button onclick="getId01()">クリックしたら実行</button>
+    <button onclick="getId02()">クリックしたら実行</button>
+    <button onclick="getId03()">クリックしたら実行</button> 
+
+    <a href="https://www.google.co.jp/" id="engine01">Google検索</a>
+    <a href="https://www.yahoo.co.jp/" id="engine02">Yahoo!検索</a>
+    <a href="https://www.bing.co.jp/" id="engine01">bing検索</a>
+
+    <script>
+        function getId01(){
+            let elm = document.getElementById('engine01');
+            alert(elm.alert)
+        }
+
+        function getId02(){
+            let elm = document.getElementById('engine02');
+            alert(elm.alert)
+        }
+
+        function getId03(){
+            let elm = document.getElementById('engine03');
+            alert(elm.alert)
+        }
+
+        function call(){
+            getId01();
+            getId02();
+            getId03();
+        }
+
+    </script>
+</body>
+</html>
