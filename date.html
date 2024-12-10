@@ -11,6 +11,13 @@
     
     let week = new Array('日','月','火','水','木','金','土',);
     alert(today.getFullYear() + "年" + today.getMonth()+"月" + today.getDay() + "日" + week[today.getDate()] + "曜日" + today.getHours() + '時' + today.getMinutes() + '分' + today.getSeconds() + '秒')
+
+    let birthday = new Date(1998,12,1);
+
+    let year = new Date();
+
+    let useAge = year.getFullYear() - birthday.getFullYear();
+    alert(useAge);
 </script>
     
 </body>
