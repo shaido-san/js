@@ -1,0 +1,50 @@
+
+
+  <script>
+    
+window.onload = function(){
+      document.getElementByid('submit'.onclick) = function(){
+
+      let myname = document.post.myname.value; //mynameの値を、name変数に格納する
+      let address = document.post.address.value; //addressの値を、address変数に格納する
+      let age = document.post.age.value; //ageの値を、age変数に格納する
+
+      //氏名
+      if (myname.length == 0) {
+        //LaveNameというIdの要素をelm変数に格納
+        let elm = document.getElementById('lavelName');
+        //子要素の一番はじめに、値（未入力です）を設定
+        elm.firstChild.nodeValue = "未入力です";
+      } else { //文字数が0でなければ文字は消す
+        elm = document.getElementById('lavelName');
+        elm.firstChild.nodeValue = "";
+      }
+
+      //住所
+      if (address.length == 0 ||
+        address.indexOf('都') == -1 //「都」の文字列が見つからない
+        &&
+        address.indexOf('道') == -1 //「道」の文字列が見つからない
+        &&
+        address.indexOf('府') == -1 //「府」の文字列が見つからない
+        &&
+        address.indexOf('県') == -1) { //「県」の文字列が見つからない
+        let elm = document.getElementById('lavelAdd');
+        elm.firstChild.nodeValue = "都道府県から入力してください";
+      } else {
+        elm = document.getElementById('lavelAdd');
+        elm.firstChild.nodeValue = "";
+      }
+
+      //年齢
+      if (age.length == 0 || isFinite(age) == false) {
+        let elm = document.getElementById('lavelAge');
+        elm.firstChild.nodeValue = "数値で入力してください";
+      } else {
+        elm = document.getElementById('lavelAge');
+        elm.firstChild.nodeValue = "";
+      }
+      }
+    }
+    
+  </script>

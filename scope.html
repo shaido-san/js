@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコープの練習です</title>
+</head>
+<!-- 実行したい関数名を実行する 自由に入れて実行できる。-->
+<body onload="func_B()">
+    <script>
+        // グローバル変数
+        let x = 1;
+
+        function Ffunc(){
+            // 関数Aのローカル変数
+            let y = 2;
+        }
+
+        function Bfunc(){
+            // 関数Bのローカル変数
+            let z = 3;
+            alert(x);
+            // 変数yはAfuncのローカル変数のため、表示されない
+            alert(y);
+            alert(z);
+        }
+
+        function Cfunc(){
+            // Cfuncのローカル変数、グローバル変数と被るが、ローカル変数の方が優先順位が高い
+            let x = 4
+            alert(x);
+        }
+
+        function Dfunc(){
+            // グローバル変数の1が表示される
+            alert(x);
+            // l変数宣言は最上部で行う let x = 132;
+        }
+
+        // スコープの事例 関数間で値をやり取りする
+        // グローバル変数のi
+        let i;
+
+        function scope_test(){
+            i = 1;
+            calc(i);
+            alert(i);
+        }
+
+        function calc(){
+            i = i * 345;
+        }
+
+        // グローバル変数を使わずに、関数間で値をやり取りする
+        function scope_test2(){
+            let i = 89;
+            i = calc2(i);
+            alert(i);
+        }
+
+        function calc2(x){
+            x = x * 543;
+            return x
+        }
+        // 関数のスコープ
+        // グローバル関数Efunc
+        function Efunc(){
+            // Ffuncのローカル関数
+            function Ffunc(){
+                alert('hello');
+            }
+            // Ffunc();
+        }
+        // グローバル関数Gfunc
+        function Gfunc(){
+            // グローバル関数は呼び出せる
+            Efunc();
+            // Efuncのローカル関数だから呼び出せない
+            Ffunc();
+        }
+
+        // グローバル関数も変数同様、ウィンドwオブジェクトのプロパティになる
+        function A(){
+            alert(window.B);
+            window.B();
+        }
+        function B(){
+            alert('hi');
+        }
+
+        // グローバル変数に関数を入れてみる
+        // 1.関数名をB->Cに変えても同じ結果
+        // 2.関数名ごと消しても動く（関数リテラルと呼ばれる）
+        let b = function (){
+            alert('こんにちは');
+        }
+        function A(){
+            alert(b); // コードが表示される
+            b();      // 結果が表示される
+        }
+
+        // 高階関数
+        function func_A(){
+            // func_Bを引数にして実行
+            func_C(func_B);
+        }
+        function  func_B(){
+            alert('こんばんは');
+        }
+        function func_C(x){
+            x();
+        }
+        
+
+    </script>
+</body>
+</html>

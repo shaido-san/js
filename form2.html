@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>入力チェック</title>
+  <style>
+    /*spanを赤字にする*/
+    span {
+      color: #f00000;
+    }
+  </style>
+  
+
+  <script>
+    function check() {
+
+      let myname = document.post.myname.value; //mynameの値を、name変数に格納する
+      let address = document.post.address.value; //addressの値を、address変数に格納する
+      let age = document.post.age.value; //ageの値を、age変数に格納する
+
+      //氏名
+      if (myname.length == 0) {
+        //LaveNameというIdの要素をelm変数に格納
+        let elm = document.getElementById('lavelName');
+        //子要素の一番はじめに、値（未入力です）を設定
+        elm.firstChild.nodeValue = "未入力です";
+      } else { //文字数が0でなければ文字は消す
+        elm = document.getElementById('lavelName');
+        elm.firstChild.nodeValue = "";
+      }
+
+      //住所
+      if (address.length == 0 ||
+        address.indexOf('都') == -1 //「都」の文字列が見つからない
+        &&
+        address.indexOf('道') == -1 //「道」の文字列が見つからない
+        &&
+        address.indexOf('府') == -1 //「府」の文字列が見つからない
+        &&
+        address.indexOf('県') == -1) { //「県」の文字列が見つからない
+        let elm = document.getElementById('lavelAdd');
+        elm.firstChild.nodeValue = "都道府県から入力してください";
+      } else {
+        elm = document.getElementById('lavelAdd');
+        elm.firstChild.nodeValue = "";
+      }
+
+      //年齢
+      if (age.length == 0 || isFinite(age) == false) {
+        let elm = document.getElementById('lavelAge');
+        elm.firstChild.nodeValue = "数値で入力してください";
+      } else {
+        elm = document.getElementById('lavelAge');
+        elm.firstChild.nodeValue = "";
+      }
+    }
+  </script>
+</head>
+
+
+  <form action="#" name="post">
+    <p>氏名：<br>
+      <!--spanの中にあらかじめ要素を入れておく必要がある（空の場合は半角スペースが無難）-->
+      <input type="text" name="myname">
+      <span id="lavelName"> </span></p>
+    <p>住所：<br>
+      <input type="text" name="address">
+      <span id="lavelAdd"> </span></p>
+    <p>年齢：<br>
+      <input type="text" name="age">
+      <span id="lavelAge"> </span></p>
+   
+   <input type="button" id="submit"></button>
+
+  </form>
+  <script src="js/form.js"></script>
+</body>
+
+</html>
+
+
+
